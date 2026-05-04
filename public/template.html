@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contrato de Prestação de Serviços</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Arial', sans-serif;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #000;
+      padding-bottom: 20px;
+    }
+    
+    .header h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    .empresa-info {
+      font-size: 12px;
+      color: #666;
+    }
+    
+    .content {
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    
+    .section {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    
+    .section-title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+    
+    .dados-tabela {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+    }
+    
+    .dados-tabela td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 12px;
+    }
+    
+    .dados-tabela .label {
+      font-weight: bold;
+      width: 40%;
+      background-color: #f5f5f5;
+    }
+    
+    .assinatura-area {
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .assinatura {
+      flex: 1;
+      text-align: center;
+      border-top: 1px solid #000;
+      padding-top: 50px;
+      margin: 0 20px;
+      font-size: 12px;
+    }
+    
+    .data-assinatura {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+    }
+    
+    .linha-dados {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    
+    .linha-dados > div {
+      flex: 1;
+      font-size: 12px;
+    }
+    
+    .linha-dados .label {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>CONTRATO DE PRESTAÇÃO DE SERVIÇOS</h1>
+      <p class="empresa-info">Instalação de Vidros e Esquadrias</p>
+    </div>
+    
+    <div class="content">
+      <div class="section">
+        <p>Que entre si celebram, de um lado como <strong>CONTRATANTE</strong>, doravante denominado simplesmente CLIENTE, e de outro lado como <strong>CONTRATADA</strong>, pessoa física prestadora de serviços, doravante denominada PRESTADORA, mediante as cláusulas e condições seguintes:</p>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">1. DO CONTRATANTE</div>
+        <table class="dados-tabela">
+          <tr>
+            <td class="label">Nome:</td>
+            <td>{{nome}}</td>
+          </tr>
+          <tr>
+            <td class="label">CPF:</td>
+            <td>{{cpf}}</td>
+          </tr>
+          <tr>
+            <td class="label">Endereço:</td>
+            <td>{{endereco}}</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">2. DO OBJETO DO CONTRATO</div>
+        <p>A PRESTADORA se compromete a realizar a instalação de {{tipo_vidro}}, conforme especificações abaixo, no local indicado pelo CLIENTE.</p>
+        
+        <table class="dados-tabela">
+          <tr>
+            <td class="label">Medidas do vão (altura x largura):</td>
+            <td>{{medidas}}</td>
+          </tr>
+          <tr>
+            <td class="label">Tipo de Vidro:</td>
+            <td>{{tipo_vidro}}</td>
+          </tr>
+          <tr>
+            <td class="label">Cor do Alumínio:</td>
+            <td>{{cor_aluminio}}</td>
+          </tr>
+          <tr>
+            <td class="label">Local de Instalação:</td>
+            <td>{{local_instalacao}}</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">3. DO VALOR E FORMA DE PAGAMENTO</div>
+        <table class="dados-tabela">
+          <tr>
+            <td class="label">Valor à Vista:</td>
+            <td>R$ {{valor_vista}}</td>
+          </tr>
+          <tr>
+            <td class="label">Valor a Prazo:</td>
+            <td>R$ {{valor_prazo}}</td>
+          </tr>
+          <tr>
+            <td class="label">Forma de Pagamento:</td>
+            <td>{{forma_pagamento}}</td>
+          </tr>
+          <tr>
+            <td class="label">Prazo de Entrega e Instalação:</td>
+            <td>{{prazo_entrega}}</td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">4. DAS OBRIGAÇÕES DA PRESTADORA</div>
+        <p>A PRESTADORA se obriga a:</p>
+        <ul style="margin-left: 20px; font-size: 12px;">
+          <li>Utilizar materiais de qualidade comprovada;</li>
+          <li>Executar o serviço de forma profissional e cuidadosa;</li>
+          <li>Cumprir o prazo de entrega e instalação pactuado;</li>
+          <li>Responsabilizar-se pela limpeza do local após a conclusão dos serviços.</li>
+        </ul>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">5. DA GARANTIA</div>
+        <p>A PRESTADORA oferece garantia de 12 (doze) meses contra defeitos de fabricação e instalação, não cobrindo danos causados por manuseio inadequado ou acidentes.</p>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">6. DO PRAZO DE VIGÊNCIA</div>
+        <p>Este contrato entra em vigor na data de sua assinatura e terá validade pelo prazo especificado no item 3, prorrogando-se automaticamente se não houver comunicação contrária com antecedência mínima de 05 (cinco) dias.</p>
+      </div>
+      
+      <div class="section">
+        <div class="section-title">7. DISPOSIÇÕES GERAIS</div>
+        <p>As partes elegem o foro de sua residência para dirimir qualquer questão decorrente do presente contrato.</p>
+      </div>
+      
+      <div class="data-assinatura">
+        <p>Local: ______________________, Data: ______/_____/_______</p>
+      </div>
+      
+      <div class="assinatura-area">
+        <div class="assinatura">
+          <p>_____________________________</p>
+          <p>CONTRATANTE</p>
+          <p>{{nome}}</p>
+        </div>
+        <div class="assinatura">
+          <p>_____________________________</p>
+          <p>PRESTADORA</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

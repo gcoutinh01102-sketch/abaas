@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Contratos em PDF</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🪟 Gerador de Contratos em PDF</h1>
+      <p class="subtitulo">Serviços de Instalação de Vidros e Esquadrias</p>
+    </div>
+    
+    <form id="formularioContrato" class="form-container">
+      <div class="form-section">
+        <h2>Dados do Contratante</h2>
+        
+        <div class="form-group">
+          <label for="nome">Nome do Contratante *</label>
+          <input type="text" id="nome" name="nome" required placeholder="Ex: João Silva">
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cpf">CPF *</label>
+            <input type="text" id="cpf" name="cpf" required placeholder="000.000.000-00" maxlength="14">
+          </div>
+          
+          <div class="form-group">
+            <label for="endereco">Endereço *</label>
+            <input type="text" id="endereco" name="endereco" required placeholder="Rua, número e complemento">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <h2>Dados do Serviço</h2>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="medidas">Medidas do Vão (altura x largura) *</label>
+            <input type="text" id="medidas" name="medidas" required placeholder="Ex: 1.50m x 2.00m">
+          </div>
+          
+          <div class="form-group">
+            <label for="tipo_vidro">Tipo de Vidro *</label>
+            <select id="tipo_vidro" name="tipo_vidro" required>
+              <option value="">Selecione...</option>
+              <option value="Vidro Transparente 8mm">Vidro Transparente 8mm</option>
+              <option value="Vidro Fumê 8mm">Vidro Fumê 8mm</option>
+              <option value="Vidro Verde 8mm">Vidro Verde 8mm</option>
+              <option value="Vidro Temperado 8mm">Vidro Temperado 8mm</option>
+              <option value="Vidro Duplo 8mm">Vidro Duplo 8mm</option>
+              <option value="Outro">Outro</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cor_aluminio">Cor do Alumínio *</label>
+            <select id="cor_aluminio" name="cor_aluminio" required>
+              <option value="">Selecione...</option>
+              <option value="Alumínio Natural">Alumínio Natural</option>
+              <option value="Branco">Branco</option>
+              <option value="Preto">Preto</option>
+              <option value="Bronze">Bronze</option>
+              <option value="Cinza">Cinza</option>
+              <option value="Champagne">Champagne</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="local_instalacao">Local de Instalação *</label>
+            <input type="text" id="local_instalacao" name="local_instalacao" required placeholder="Ex: Sala, Quarto, Varanda">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-section">
+        <h2>Valores e Pagamento</h2>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="valor_vista">Valor à Vista (R$) *</label>
+            <input type="number" id="valor_vista" name="valor_vista" required placeholder="0.00" step="0.01" min="0">
+          </div>
+          
+          <div class="form-group">
+            <label for="valor_prazo">Valor a Prazo (R$) *</label>
+            <input type="number" id="valor_prazo" name="valor_prazo" required placeholder="0.00" step="0.01" min="0">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="forma_pagamento">Forma de Pagamento *</label>
+            <select id="forma_pagamento" name="forma_pagamento" required>
+              <option value="">Selecione...</option>
+              <option value="Dinheiro">Dinheiro</option>
+              <option value="Cheque">Cheque</option>
+              <option value="Transferência Bancária">Transferência Bancária</option>
+              <option value="PIX">PIX</option>
+              <option value="Cartão de Crédito">Cartão de Crédito</option>
+              <option value="Parcelado">Parcelado</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="prazo_entrega">Prazo de Entrega e Instalação *</label>
+            <input type="text" id="prazo_entrega" name="prazo_entrega" required placeholder="Ex: 5 dias úteis">
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-actions">
+        <button type="reset" class="btn btn-secondary">Limpar Formulário</button>
+        <button type="submit" class="btn btn-primary">
+          <span class="btn-text">Gerar PDF do Contrato</span>
+          <span class="btn-icon">📄</span>
+        </button>
+      </div>
+    </form>
+    
+    <div id="mensagemStatus" class="mensagem-status"></div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

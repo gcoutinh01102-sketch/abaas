@@ -3,7 +3,6 @@ const puppeteer = require('puppeteer');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors');
-const os = require('os');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -25,48 +24,19 @@ function substituirVariaveis(template, dados) {
   return html;
 }
 
-// Função para encontrar o Chrome instalado no sistema
-function encontrarChrome() {
-  // Caminhos possíveis do Chrome no Windows
-  const caminhosPossiveis = [
-    'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
-    'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
-    path.join(process.env.LOCALAPPDATA, 'Google\\Chrome\\Application\\chrome.exe'),
-    path.join(process.env.PROGRAMFILES, 'Google\\Chrome\\Application\\chrome.exe'),
-  ];
-  
-  for (const caminho of caminhosPossiveis) {
-    if (fs.existsSync(caminho)) {
-      console.log(`✅ Chrome encontrado em: ${caminho}`);
-      return caminho;
-    }
-  }
-  
-  console.warn('⚠️  Chrome não encontrado nos caminhos conhecidos');
-  return null;
-}
-
 // Função para gerar PDF
 async function gerarPDF(htmlContent) {
   let browser;
   try {
     console.log('📄 Iniciando geração de PDF...');
     
-    const chromePath = encontrarChrome();
-    
-    if (!chromePath) {
-      throw new Error('Chrome não está instalado. Por favor, instale o Google Chrome para gerar PDFs.');
-    }
-    
-    // Lançar o navegador apontando para o Chrome instalado
-    console.log('🚀 Iniciando Puppeteer com Chrome...');
+    // Lançar o navegador (Puppeteer detecta automaticamente o navegador disponível)
+    console.log('🚀 Iniciando Puppeteer...');
     browser = await puppeteer.launch({
       headless: true,
-      executablePath: chromePath,
       args: [
         '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage'
+        '--disable-setuid-sandbox'
       ]
     });
     
@@ -156,12 +126,4 @@ app.listen(PORT, () => {
   const url = PORT === 3000 ? `http://localhost:${PORT}` : `(Render/Produção)`;
   console.log(`📍 Acesso: ${url}`);
   console.log(`${'='.repeat(60)}\n`);
-  
-  // Verificar Chrome na inicialização
-  const chromePath = encontrarChrome();
-  if (chromePath) {
-    console.log(`✅ Chrome detectado e pronto para usar\n`);
-  } else {
-    console.warn(`⚠️  AVISO: Chrome não encontrado. A geração de PDF não funcionará.\n`);
-  }
 });

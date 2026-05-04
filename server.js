@@ -6,7 +6,7 @@ const cors = require('cors');
 const os = require('os');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -152,8 +152,9 @@ app.post('/gerar-contrato', async (req, res) => {
 // Iniciar servidor
 app.listen(PORT, () => {
   console.log(`\n${'='.repeat(60)}`);
-  console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
-  console.log('Abra seu navegador e acesse http://localhost:3000');
+  console.log(`🚀 Servidor rodando em porta ${PORT}`);
+  const url = PORT === 3000 ? `http://localhost:${PORT}` : `(Render/Produção)`;
+  console.log(`📍 Acesso: ${url}`);
   console.log(`${'='.repeat(60)}\n`);
   
   // Verificar Chrome na inicialização
